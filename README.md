@@ -1,2 +1,2 @@
 # Manage_Events
-hola
+Optativa IV - proyecto gestión de eventos sociales - FOXHOUND
