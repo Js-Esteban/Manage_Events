@@ -1,0 +1,95 @@
+.title{
+  position: absolute;
+  top:6%;
+  left: 40%;
+}
+.body-form{
+  margin-top: 20px;
+  margin-left: 15%;
+  margin-right: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+
+  button{
+    margin: 5px;
+  }
+  input{
+    width: 100%;
+  }
+
+}
+.card{
+  margin: 10px;
+  padding: 10px;
+  background-color: #D9D9D9;
+  &:hover{
+    scale: 1.1;
+  }
+    span{
+      display: block;
+      padding-top: 10px;
+    }
+}
+
+/*modal*/
+.modal{
+  height: 100vh;
+  width: 100vw;
+  top: 110vh;
+
+  position: absolute;
+  background-color: gray;
+}
+
+.cards{
+  border: 3px solid black;
+  margin:5% 17% 0 17%;
+    .card-title{
+      font-size: 50px;
+      font-weight: 600;
+      line-height: 61px;
+      letter-spacing: 0em;
+      text-align: center;
+      background-color: #52BABF;
+      padding: 10px;
+      .close{
+        border: none;
+        background: none;
+        position: relative;
+        top: -27px;
+        right: -21px;
+        font-size: 30px;
+        cursor: pointer;
+
+      }
+    }
+    .card-body{
+      padding: 10px;
+      font-size: 32px ;
+      background-color: white;
+    }
+}
+.btn-1 {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  background:#52BABF;
+  border: none;
+  cursor: pointer;
+}
+.btn-1:hover {
+  background: #52BABF;
+}
+
+.active-button{
+  background-color: #EFD2CB;
+  scale: 1.1;
+}

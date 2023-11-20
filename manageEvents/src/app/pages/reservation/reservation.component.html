@@ -1,0 +1,9 @@
+<div class="container-calendar">
+    <h1 class="title">Realizar reservación</h1>
+  <h1>Mes Actual</h1>
+  <p>Escogue el dia de la reserva</p>
+  <div class="calendar">
+  <ul>
+    <li *ngFor="let item of list" (click)="nextForm()" >{{item}}</li>
+  </ul>
+</div>

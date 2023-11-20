@@ -1,0 +1,17 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header-main{
+  width: 100vw;
+  height: 15vh;
+  background-color: #52BABF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  img{
+    margin-right: 12px;
+  }
+}

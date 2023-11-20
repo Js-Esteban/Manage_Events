@@ -1,0 +1,23 @@
+<div class="container-view">
+  <div class="back-page" (click)="backHome()">
+    volver
+  </div>
+  <span class="title">Historial de reservaciones</span>
+  <section class="cards" *ngFor="let item of datos">
+    <div class="card-body">
+      <div class="card-title">
+        <span>¡Reservación Exitosa!</span>
+       <div class="close">
+        <button  >X</button>
+       </div>
+      </div>
+      <div class="item">Costo: {{ item.costo }}  </div>
+      <div class="item">Fecha: {{ item.fecha }} </div>
+      <div class="item">Tipo de evento:{{ item.tipo_evento }}</div>
+      <div class="item">Serivio de catering: {{ item.servicio_catering }}</div>
+      <div class="item">Diesño del evento: {{ item.diseno_evento }}</div>
+      <div class="item">Artista o DJ: {{ item.artista }}</div>
+      <div class="item"> Numero de invitados: {{ item.numero_invitados }}</div>
+    </div>
+  </section>
+</div>

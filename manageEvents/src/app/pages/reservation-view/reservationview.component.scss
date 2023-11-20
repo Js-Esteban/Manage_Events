@@ -1,0 +1,56 @@
+.title{
+  position: absolute;
+  top:6%;
+  left: 40%;
+  font-size: 30px;
+  color: white;
+}
+
+.back-page{
+  border-radius: 5px;
+  width: fit-content;
+  background-color: #52BABF;
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cards{
+  border: 3px solid black;
+  margin:5% 17% 0 17%;
+    .card-title{
+      font-size: 50px;
+      font-weight: 600;
+      line-height: 61px;
+      letter-spacing: 0em;
+      text-align: center;
+      background-color: #52BABF;
+      padding: 10px;
+      .close{
+        border: none;
+        background: none;
+        position: absolute;
+        top: -7px;
+        right: -3px;
+        font-size: 30px;
+        cursor: pointer;
+
+        button{
+          padding: 10px;
+          border: none;
+          background: none;
+          cursor: pointer;
+          font-size: 30px;
+        }
+      }
+    }
+    .card-body{
+
+      font-size: 32px ;
+      position: relative;
+      .item{
+        padding: 10px;
+      }
+    }
+}

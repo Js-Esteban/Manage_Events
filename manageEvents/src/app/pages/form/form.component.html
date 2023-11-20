@@ -1,0 +1,101 @@
+<div class="container-form">
+  <h1 class="title">Realizar reservación</h1>
+  <section class="body-form">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <button type="button"  class="custom-btn btn-1" (click)="floor1 = !floor1;alerta()" [ngClass]="{'active-button':floor1}">Piso 1</button>
+        <button type="button"  class="custom-btn btn-1" (click)="floor2 = !floor2 ;alerta()" [ngClass]="{'active-button':floor2}">Piso 2</button>
+      </div>
+
+      <div class="row">
+        <label for="campo1">Tipo de evento:</label>
+        <input type="text" id="campo1" formControlName="campo1">
+      </div>
+
+      <div class="row">
+        <label for="campo2">Numero de invitados:</label>
+        <input type="number" id="campo2" formControlName="campo2">
+      </div>
+
+      <span>Servicio de catering</span>
+      <div class="row">
+        <div class="card" (click)="isService1= 'op1'">
+          <img src="/assets/cate1.png" alt="" height="150px">
+          <span>El asado colombiano es una experiencia culinaria deliciosa y social que se centra en la carne a la parrilla y una variedad de acompañamientos sabrosos.</span>
+        </div>
+
+        <div class="card" (click)="isService1= 'op2'">
+          <img src="/assets/cate2.png" alt="" height="150px">
+          <span>La tradición de la paella en España es una parte integral de la cultura culinaria y social del país.</span>
+        </div>
+
+        <div class="card" (click)="isService1= 'op3';   alerta()">
+          <img src="/assets/me.png" alt="" width="160px" height="150px">
+          <span>Gestion Propia</span>
+        </div>
+      </div>
+
+      <span>Diseño del evento</span>
+      <div class="row">
+        <div class="card" (click)="isService2 = 'op1'">
+          <img src="/assets/dig1.jpeg" alt="" height="150px">
+          <span>Formal</span>
+        </div>
+
+        <div class="card" (click)="isService2= 'op2'">
+          <img src="/assets/dig2.jpeg" alt="" height="150px">
+          <span>Casual</span>
+        </div>
+
+        <div class="card" (click)="isService2='op3'">
+          <img src="/assets/me.png" alt="" width="160px" height="150px">
+          <span>Gestion Propia</span>
+        </div>
+      </div>
+
+      <span>Artista o Dj</span>
+      <div class="row">
+        <div class="card" (click)="isService3 = 'op1'">
+          <img src="/assets/art1.jpeg" alt="" height="150px">
+          <span>Dj</span>
+        </div>
+
+        <div class="card"  (click)="isService3 = 'op2'">
+          <img src="/assets/art2.jpeg" alt="" height="150px">
+          <span>Cantantes</span>
+        </div>
+
+        <div class="card" (click)="isService3 = 'op3'">
+          <img src="/assets/me.png" alt="" width="160px" height="150px">
+          <span>Gestion Propia</span>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <button type="button" class="custom-btn btn-1">Cancelar</button>
+        <button type="submit" [disabled]="formulario.invalid " class="custom-btn btn-1">Enviar</button>
+
+      </div>
+    </form>
+  </section>
+
+  <div class="modal" *ngIf="IsSubmit">
+
+    <section class="cards">
+      <div class="card-title">
+        <span>¡Reservación Exitosa!</span>
+        <button class="close" (click)="backHome()">X</button>
+      </div>
+      <div class="card-body">
+        <div class="item">Costo: {{costo}}</div>
+        <div class="item">Fecha: DD/MM/AAAA </div>
+        <div class="item">Numero de invitados:{{ numberEvent }} </div>
+        <div class="item">Tipo de evento:{{ typeEvent}} </div>
+        <div class="item">Serivio de catering: {{ serviceEvent }}  </div>
+        <div class="item">Diesño del evento: {{ desing }} </div>
+        <div class="item">Artista o DJ: {{ artist }} </div>
+      </div>
+    </section>
+  </div>
+</div>

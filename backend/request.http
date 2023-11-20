@@ -1,0 +1,13 @@
+###
+POST http://localhost:3000/reserva/agregar HTTP/1.1
+Content-Type: application/json
+
+{
+ "costo": 234,
+  "fecha": "11",
+  "servicio_catering":"11",
+  "diseno_evento":"11" ,
+  "artista": "11",
+  "numero_invitados":"11",
+  "tipo_evento": "11" 
+}  
