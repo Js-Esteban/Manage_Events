@@ -4,6 +4,6 @@
   <p>Escogue el dia de la reserva</p>
   <div class="calendar">
   <ul>
-    <li *ngFor="let item of list" (click)="nextForm()" >{{item}}</li>
+    <li *ngFor="let item of list" (click)="nextForm(item)" >{{item}}</li>
   </ul>
 </div>

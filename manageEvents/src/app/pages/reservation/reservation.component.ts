@@ -12,7 +12,7 @@ export class ReservationComponent implements OnInit {
   list : number[]=[]
   id:string=''
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     const today = new Date();
@@ -20,7 +20,7 @@ export class ReservationComponent implements OnInit {
     const currentYear = today.getFullYear();
     this.list = this.getDaysInMonth(currentYear, currentMonth);
 
-    console.log(this.date)
+    console.log(this.list)
   }
 
   getDaysInMonth(year: number, month: number): number[] {
@@ -28,8 +28,8 @@ export class ReservationComponent implements OnInit {
     return Array.from({ length: totalDays }, (_, index) => index + 1);
   }
 
-  nextForm(){
-    this.router.navigate(['/form']);
-    console.log('hla',)
+  nextForm(day:any){
+    console.log(day)
+    this.router.navigate(['/form'], { queryParams: { day: day } })
   }
 }

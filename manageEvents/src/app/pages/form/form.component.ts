@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { FormServiceService } from 'src/app/Services/form-service.service';
 import { reserva } from 'src/app/model/reserva.model';
 
@@ -24,14 +24,26 @@ export class FormComponent implements OnInit {
   isService2!:string;
   isService3!:string;
 
+  day:any;
+   fecha = ''
+
  constructor(
-  private fb: FormBuilder ,private renderer: Renderer2, private el: ElementRef ,private router: Router, private formularioService: FormServiceService
+  private fb: FormBuilder ,
+  private renderer: Renderer2,
+  private el: ElementRef ,
+  private router: Router,
+  private formularioService: FormServiceService,
+  private activatedRoute: ActivatedRoute
   ){ }
 
   ngOnInit(): void {
 
     this.initializeForm()
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.day = params['day'];
+    });
 
+    this.fecha = this.formatDay(this.day)
   }
 
   private initializeForm(): void {
@@ -49,14 +61,11 @@ export class FormComponent implements OnInit {
 
   onSubmit(): void {
     console.log('hola ejem',  this.isService1)
-
+    console.log(this.fecha)
     if (this.formulario.valid &&  this.isService1  &&  this.isService2  &&  this.isService3 ) {
 
       this.IsSubmit =true
-
-
       this.typeEvent = this.formulario?.get('campo1')?.value;
-
       this.numberEvent = this.formulario?.get('campo2')?.value;
 
       this.desing = this.isService2=='op1' ? 'Formal': this.isService2=='op2'?'Casual' : 'gestion propia';
@@ -78,7 +87,7 @@ export class FormComponent implements OnInit {
       const reservaObj :reserva = {
         numero_invitados: this.numberEvent,
         costo: this.costo,
-        fecha: '',
+        fecha: this.fecha,
         tipo_evento:this.typeEvent,
         servicio_catering:   this.serviceEvent ,
         diseno_evento:this.desing ,
@@ -101,4 +110,17 @@ export class FormComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  formatDay(day: string): string {
+    const fecha = new Date(day);
+
+
+    const año = fecha.getFullYear();
+    const mes = ('0' + (fecha.getMonth() + 1)).slice(-2);
+    const dia = ('0' + fecha.getDate()).slice(-2);
+
+    // Formateamos la cadena
+    const fechaFormateada = `${año}/${mes}/${dia}`;
+
+    return fechaFormateada;
+  }
 }

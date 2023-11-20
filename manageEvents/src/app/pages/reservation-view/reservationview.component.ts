@@ -37,6 +37,7 @@ export class ReservationViewComponent implements OnInit {
 
 
   backHome(){
+    console.log('hoal')
     this.router.navigate([''])
   }
 
